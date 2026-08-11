@@ -39,6 +39,9 @@ docker-compose up -d
 # API Docs: http://localhost:8000/api/v1/docs
 ```
 
+> **Note on Local AI Models:**
+> Docker handles everything *except* the LLM execution engine (`Ollama`). To use local LLMs like `llama3.2`, you must install Ollama on your host machine from [ollama.com](https://ollama.com) and pull the model manually by running `ollama run llama3.2` in your terminal. Docker will automatically connect to it.
+
 ### Option 2: Local Development
 
 **Backend:**

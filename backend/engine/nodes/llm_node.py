@@ -51,7 +51,7 @@ def llm_agent_node(node_data: dict, state: dict, db, user_id: int) -> str:
 
     if provider == "ollama":
         from langchain_community.chat_models import ChatOllama
-        llm = ChatOllama(model=model, base_url="http://localhost:11434")
+        llm = ChatOllama(model=model, base_url="http://host.docker.internal:11434")
     else:
         # OpenAI
         api_key = None

@@ -56,6 +56,8 @@ services:
     volumes:
       - ./backend/chroma_db:/app/chroma_db  # Persist local vector store
       - hf_cache:/root/.cache/huggingface    # Persist downloaded models
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   # ─── Celery Worker ────────────────────────────────────────────────
   celery_worker:
@@ -75,6 +77,8 @@ services:
       - redis
     volumes:
       - hf_cache:/root/.cache/huggingface
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   # ─── Celery Beat (Cron Scheduler) ────────────────────────────────
   celery_beat:
