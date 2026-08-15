@@ -28,10 +28,14 @@ class Settings(BaseSettings):
 
     # ─── CORS ────────────────────────────────────────────
     FRONTEND_URL: str = "http://localhost:3000"
+    CORS_ORIGINS: str = ""
+    OLLAMA_BASE_URL: str = "http://localhost:11434"
 
     @property
     def ALLOWED_ORIGINS(self) -> List[str]:
-        return [self.FRONTEND_URL, "http://localhost:3000"]
+        defaults = [self.FRONTEND_URL, "http://localhost:3000", "http://127.0.0.1:3000"]
+        configured = [origin.strip().rstrip("/") for origin in self.CORS_ORIGINS.split(",") if origin.strip()]
+        return list(dict.fromkeys(origin.rstrip("/") for origin in [*defaults, *configured]))
 
     # ─── Optional LLM Keys (defaults; users override in UI) ──
     OPENAI_API_KEY: str = ""

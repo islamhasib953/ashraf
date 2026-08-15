@@ -19,8 +19,7 @@ export default function Sidebar({ user, onLogout, onClose }: { user: any; onLogo
       {/* Logo */}
       <div className="px-5 py-5 border-b border-white/5">
         <Link href="/dashboard" className="flex items-center gap-2" onClick={onClose}>
-          <div className="w-8 h-8 rounded-lg flex items-center justify-center"
-               style={{background: "linear-gradient(135deg, #7c3aed, #4f46e5)"}}>
+          <div className="brand-mark w-8 h-8 rounded-lg flex items-center justify-center">
             <Bot size={16} className="text-white" />
           </div>
           <span className="text-lg font-bold gradient-text">AgentFlow</span>
@@ -36,11 +35,11 @@ export default function Sidebar({ user, onLogout, onClose }: { user: any; onLogo
                   onClick={onClose}
                   className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-150
                     ${active
-                      ? "bg-purple-600/20 text-white border border-purple-500/30"
+                      ? "bg-cyan-400/10 text-white border border-cyan-300/20"
                       : "text-[var(--text-secondary)] hover:bg-white/5 hover:text-white"}`}>
-              <span className={active ? "text-purple-400" : ""}>{item.icon}</span>
+              <span className={active ? "text-cyan-300" : ""}>{item.icon}</span>
               {item.label}
-              {active && <ChevronRight size={14} className="ml-auto text-purple-400" />}
+              {active && <ChevronRight size={14} className="ml-auto text-cyan-300" />}
             </Link>
           );
         })}
@@ -50,8 +49,7 @@ export default function Sidebar({ user, onLogout, onClose }: { user: any; onLogo
       {user && (
         <div className="px-4 py-4 border-t border-white/5">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold"
-                 style={{background: "linear-gradient(135deg, #7c3aed, #4f46e5)"}}>
+            <div className="brand-mark w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">
               {user.username?.[0]?.toUpperCase()}
             </div>
             <div className="flex-1 min-w-0">

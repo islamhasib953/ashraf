@@ -274,7 +274,7 @@ async def send_message(
         try:
             if agent.llm_provider == "ollama":
                 from langchain_community.chat_models import ChatOllama
-                llm = ChatOllama(model=agent.llm_model, base_url="http://host.docker.internal:11434")
+                llm = ChatOllama(model=agent.llm_model, base_url=settings.OLLAMA_BASE_URL)
             else:
                 from langchain_openai import ChatOpenAI
                 llm = ChatOpenAI(

@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1";
+// Route browser traffic through Next.js. This avoids cross-origin auth failures
+// in development and lets the Docker frontend reach the backend by service name.
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "/api/v1";
 
 const api = axios.create({ baseURL: API_URL });
 

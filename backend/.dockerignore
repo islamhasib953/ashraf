@@ -1,0 +1,8 @@
+.venv
+venv
+__pycache__
+*.py[cod]
+agent_saas.db*
+.env
+uploads
+chroma_db
